@@ -20,7 +20,7 @@ public class Problema2 {
 	}
 
 	private static String kSimaPerm(String r, String numero) {
-		String resp ="|";
+		String resp =" |";
 		Integer valor = Integer.parseInt(numero);
 		Integer valorR = Integer.parseInt(r);
 		Integer cont =0;
