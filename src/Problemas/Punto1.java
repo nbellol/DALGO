@@ -35,7 +35,7 @@ public class Punto1
 		}
 		//Se busca el rango con mayor diferencia
 
-		for(int i = c - 1, a = 0; i < posiciones.length; i++, a++)
+		for(int i = c - 1, a = 0; i < numCeros; i++, a++)
 		{
 			Integer current = posiciones[i] - posiciones[a] + 1;
 			if(a - 1 > - 1)
@@ -46,26 +46,25 @@ public class Punto1
 			{
 				current += posiciones[a];
 			}
-			if(i + 1 < posiciones.length)
+			if(i + 1 < numCeros)
 			{
 				current += posiciones[i + 1] - posiciones[i] - 1;
 			}
-			if(i + 1 >= posiciones.length)
+			if(i + 1 >= numCeros)
 			{
-				current += numeros.length - posiciones[i] - 3;
+				current += n - posiciones[i] - 1;
 			}
 			if( current > answer)
 			{
 				answer = current;
 			}
-			System.out.println(posiciones[a] + " y " + posiciones[i] + " da: " + current);
 		}
 		return answer;
 	}
 	public final static void main(String[] args)
 	{
-		String test = "15 2 12 0 -3 0 0 1 2 3 4 0 4 5 23 0 100";
-		System.out.println("Respuesta");
+		String test = "15 6 12 0 -3 0 0 1 2 3 4 0 4 5 23 0 100";
+		System.out.println("Respuesta:");
 		System.out.println(longitudSubArregloMasLargo(test));
 	}
 	public static void imprimirPregunta() {
