@@ -3,7 +3,7 @@ package Problemas;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class problemaDalgo2 {
+public class punto2 {
 	public static char[] num;
 	private static Long R;
 	private static Long Valnum;
@@ -55,47 +55,52 @@ public class problemaDalgo2 {
 			System.out.println("*");
 		}
 		else {
-
-			permut(datos, 0, datos.length);
-			Arrays.sort(minimos);
-			if(R<= Temp) {
-				System.out.println(resp + minimos[(int) ((5039-Temp)+R)]);
+			while (R>0) {
+				permut(datos);
+				for (int j = 0; j < datos.length; j++) {
+					resp = resp + datos[j];
+				}
+				System.out.println(resp);
+				resp = resp +"\n";
+				R--;
 			}
-			else {
-				System.out.println("NO EXISTE ESA PERMUTACION");
-			}
+			
 		}
 	}
 
-	public static void permut(Integer[] numeros, int start, int n) {
-		int temp =0;
-		if( start<n)
-		{
-			for (int i = start; i < n; i++) {
-				temp = numeros[start];
-				numeros[start]= numeros[i];
-				numeros[i]= temp;
-
-				permut(numeros,start+1,n);
-
-				temp = numeros[start];
-				numeros[start]= numeros[i];
-				numeros[i]= temp;
+	private static void permut(Integer[] dato) {
+		Integer min = 0;
+		Integer posMin =0;
+		int[] temp = new int[dato.length];
+		for (int i = dato.length-1; i >= 0; i--) {
+			if(dato[i-1]>dato[i]) {
+				temp[i] = dato[i];
+			}
+			else {
+				temp[i] = dato[i];
+				min = dato[i-1];
+				posMin = i-1;
+				break;
 			}
 		}
-		else {
-
-			String resp = "";
-			for (int j = 0; j < n; j++) {
-				resp = resp +numeros[j];
+		Integer minDmax =10;
+		Integer posminDmax=0;
+		for (int i = posMin+1; i < temp.length; i++) {
+			if (temp[i]< minDmax && temp[i]>min) {
+				minDmax = temp[i];
+				posminDmax = i;
 			}
+		}
+		dato[posMin] = minDmax;
+		dato[posminDmax] = min;
 
-			Long actual = new Long(resp);
-			if(actual >Tope) {
-				minimos[Temp]=actual;
-				Temp++;
-			}
-
+		temp= new int[dato.length -(min)];
+		for (int i = min; i < dato.length; i++) {
+			temp[i-(min)] = dato[i];
+		}
+		Arrays.sort(temp);
+		for (int i = min; i < dato.length; i++) {
+			dato[i] = temp[i-min];
 		}
 	}
 
