@@ -14,60 +14,55 @@ public class problemaDalgo2 {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		boolean fin = false;
-		while (!fin) {
-			imprimirPregunta();
-			String option = sc.nextLine();
-			Long starTime = System.currentTimeMillis();
-			String data[] = option.split(" ");
+		imprimirPregunta();
+		String option = sc.nextLine();
+		String data[] = option.split(" ");
 
-			Valnum = Long.parseLong(data[1]);
-			R = Long.parseLong(data[0]);
-			num = data[1].toCharArray();
-			minimos = new long[5040];
+		Valnum = Long.parseLong(data[1]);
+		R = Long.parseLong(data[0]);
+		num = data[1].toCharArray();
+		minimos = new long[5040];
 
-			Integer cont =0;
-			Integer tam;
-			Integer[] datos;
-			if (num.length<7 ) {
-				tam = num.length-6;
-				datos = new Integer[6];
+		Integer cont =0;
+		Integer tam;
+		Integer[] datos;
+		if (num.length<7 ) {
+			tam = num.length-6;
+			datos = new Integer[6];
+		}
+		else {
+			tam = num.length-7;
+			datos = new Integer[7];
+		}
+
+		String resp="";
+		String t ="";
+
+		for (int i = 0; i < num.length; i++) {
+			if(i < tam) {
+				resp = resp +num[i];	
 			}
 			else {
-				tam = num.length-7;
-				datos = new Integer[7];
+				datos[i-tam] = Integer.parseInt(num[i]+"");
+				t=t+datos[i-tam];
 			}
-
-			String resp="";
-			String t ="";
-
-			for (int i = 0; i < num.length; i++) {
-				if(i < tam) {
-					resp = resp +num[i];	
-				}
-				else {
-					datos[i-tam] = Integer.parseInt(num[i]+"");
-					t=t+datos[i-tam];
-				}
-				if (i+1<num.length) {
-					if (num[i]>=num[i+1]) {cont++;}
-				}
+			if (i+1<num.length) {
+				if (num[i]>=num[i+1]) {cont++;}
 			}
-			Tope = Long.parseLong(t);
-			if (cont== num.length-1) {
-				System.out.println("*");
+		}
+		Tope = Long.parseLong(t);
+		if (cont== num.length-1) {
+			System.out.println("*");
+		}
+		else {
+
+			permut(datos, 0, datos.length);
+			Arrays.sort(minimos);
+			if(R<= Temp) {
+				System.out.println(resp + minimos[(int) ((5039-Temp)+R)]);
 			}
 			else {
-
-				permut(datos, 0, datos.length);
-				Arrays.sort(minimos);
-				if(R<= Temp) {
-					System.out.println("PERMUTACION BUESCADA: " + resp + minimos[(int) ((5039-Temp)+R)]);
-				}
-				else {
-					System.out.println("NO EXISTE ESA PERMUTACION");
-				}
-				System.out.println(System.currentTimeMillis()-starTime);
+				System.out.println("NO EXISTE ESA PERMUTACION");
 			}
 		}
 	}
