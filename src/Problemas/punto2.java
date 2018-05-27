@@ -6,10 +6,6 @@ import java.util.Scanner;
 public class punto2 {
 	public static char[] num;
 	private static Long R;
-	private static Long Valnum;
-	private static Long Tope;
-	private static Integer Temp = 0;
-	private static long[] minimos;
 
 	public static void main(String[] args) {
 
@@ -18,53 +14,34 @@ public class punto2 {
 		String option = sc.nextLine();
 		String data[] = option.split(" ");
 
-		Valnum = Long.parseLong(data[1]);
 		R = Long.parseLong(data[0]);
 		num = data[1].toCharArray();
-		minimos = new long[5040];
 
 		Integer cont =0;
-		Integer tam;
 		Integer[] datos;
-		if (num.length<7 ) {
-			tam = 0;
-			datos = new Integer[num.length];
-		}
-		else {
-			tam = num.length-7;
-			datos = new Integer[7];
-		}
+		datos = new Integer[num.length];
 
 		String resp="";
 		String t ="";
 
 		for (int i = 0; i < num.length; i++) {
-			if(i < tam) {
-				resp = resp +num[i];	
-			}
-			else {
-				datos[i-tam] = Integer.parseInt(num[i]+"");
-				t=t+datos[i-tam];
-			}
+			datos[i] = Integer.parseInt(num[i]+"");
 			if (i+1<num.length) {
 				if (num[i]>=num[i+1]) {cont++;}
 			}
 		}
-		Tope = Long.parseLong(t);
 		if (cont== num.length-1) {
 			System.out.println("*");
 		}
 		else {
 			while (R>0) {
 				permut(datos);
-				for (int j = 0; j < datos.length; j++) {
-					resp = resp + datos[j];
-				}
-				System.out.println(resp);
-				resp = resp +"\n";
 				R--;
 			}
-			
+			for (int j = 0; j < datos.length; j++) {
+				resp = resp + datos[j];
+			}
+			System.out.println(resp);
 		}
 	}
 
@@ -93,15 +70,24 @@ public class punto2 {
 		}
 		dato[posMin] = minDmax;
 		dato[posminDmax] = min;
+		
+		Integer borde =posMin +1;
 
-		temp= new int[dato.length -(min)];
-		for (int i = min; i < dato.length; i++) {
-			temp[i-(min)] = dato[i];
+		temp= new int[dato.length -(borde)];
+		if (temp.length != 1) {
+			if (borde + temp.length != dato.length )
+			{
+				borde = borde -1;
+			}
+			for (int i = borde; i < dato.length; i++) {
+				temp[i-(borde)] = dato[i];
+			}
+			Arrays.sort(temp);
+			for (int i = borde; i < dato.length; i++) {
+				dato[i] = temp[i-borde];
+			}
 		}
-		Arrays.sort(temp);
-		for (int i = min; i < dato.length; i++) {
-			dato[i] = temp[i-min];
-		}
+
 	}
 
 	public static void imprimirPregunta() {
