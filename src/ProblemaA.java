@@ -1,6 +1,6 @@
-package Problemas;
+import java.util.Scanner;
 
-public class Punto1 
+public class ProblemaA 
 {
 	public static int longitudSubArregloMasLargo (String cadena )
 	{	
@@ -63,16 +63,16 @@ public class Punto1
 	}
 	public final static void main(String[] args)
 	{
-		String test = "15 6 12 0 -3 0 0 1 2 3 4 0 4 5 23 0 100";
+		imprimirPregunta();
+		String test = (new Scanner(System.in)).nextLine();
 		System.out.println("Respuesta:");
 		System.out.println(longitudSubArregloMasLargo(test));
 	}
 	public static void imprimirPregunta() {
 		System.out.println("---------ISIS 1105 - Diseño y Analisis de Algoritmos----------");
-		System.out.println("---------------------Proyecto----------------------");
+		System.out.println("-------------------------  Proyecto  -------------------------");
 		System.out.println("Ingrese los valores para el primer problema, subcadena más larga con a lo sumo c cantidad de ceros");
-		System.out.println("Primero ingrese el tamanio del arreglo, luego el número de ceros,");
-		System.out.println("Seguido de la cadena que se quiere separada por espacios");
-		System.out.println("(e.g. 15 3 12 0 -3 0 0 1 2 3 4 0 4 5 23 0 100 \n donde 10 es el tamaño, 3 la cantidad de ceros y el resto hace referencia al arreglo)");
+		System.out.println("Primero ingrese el tamanio del arreglo, luego el número de ceros, finalizando con los datos del arreglo");
+		System.out.println("Por ejemplo: 15 3 12 0 -3 0 0 1 2 3 4 0 4 5 23 0 100\nDonde 10 es el tamaño, 3 la cantidad de ceros y el resto hace referencia al arreglo");
 	}
 }

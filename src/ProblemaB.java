@@ -1,9 +1,8 @@
-package Problemas;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class punto2 {
+public class ProblemaB {
 	public static char[] num;
 	private static Long R;
 
@@ -91,9 +90,9 @@ public class punto2 {
 	}
 
 	public static void imprimirPregunta() {
-		System.out.println("---------ISIS 1105 - Diseño y Analisis de Algoritmos----------");
+		System.out.println("---------ISIS 1105 - Diseï¿½o y Analisis de Algoritmos----------");
 		System.out.println("---------------------Proyecto----------------------");
-		System.out.println("Ingrese los valores para el segundo problema, K-sima siguiente permutación");
+		System.out.println("Ingrese los valores para el segundo problema, K-sima siguiente permutaciï¿½n");
 		System.out.println("de la forma <r k> donde 0 <= r <= 9 y k es entero ");
 		System.out.println("Ej: 1 123542");
 	}
