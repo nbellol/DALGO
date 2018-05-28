@@ -1,7 +1,22 @@
 import java.util.Scanner;
-
+/*
+ * Esta clase presenta la solucion al Problema a donde se encontrar� el 
+ * subarreglo mas largo con un numero maximo de ceros donde se recibe un
+ * arreglo numerico y un c que representa el numero maximo de  ceros que 
+ * puede tener el arreglo 
+ * 
+ * authors
+ * @nbellol - n.bello - 201630593
+ * @ngaitan98 - n.gaitan -201631098
+ */
 public class ProblemaA 
 {
+	//---------------------------------------------------------------------------------------------
+	// Metodos
+	//---------------------------------------------------------------------------------------------
+	/*
+	 * En este metodo se obtiene longituf sub arregla mas Largo
+	*/
 	public static int longitudSubArregloMasLargo (String cadena )
 	{	
 		//Preparación de los datos
@@ -61,6 +76,12 @@ public class ProblemaA
 		}
 		return answer;
 	}
+	//---------------------------------------------------------------------------------------------
+	// Metodo MAIN
+	//---------------------------------------------------------------------------------------------
+	/*
+	 * aqui se resuelve el problema A
+	 */
 	public final static void main(String[] args)
 	{
 		imprimirPregunta();
@@ -68,6 +89,9 @@ public class ProblemaA
 		System.out.println("Respuesta:");
 		System.out.println(longitudSubArregloMasLargo(test));
 	}
+	 /*
+	  * Este metodo Imprime la pregunta para el usuario
+	  */
 	public static void imprimirPregunta() {
 		System.out.println("---------ISIS 1105 - Diseño y Analisis de Algoritmos----------");
 		System.out.println("-------------------------  Proyecto  -------------------------");

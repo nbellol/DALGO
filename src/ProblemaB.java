@@ -1,11 +1,36 @@
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+/*
+ * Esta clase presenta la solucion al Problema B donde se encontrará la 
+ * k-esima permutacion de la funcion sp(r,k) donde r representa el numero 
+ * que se debe demostrar en decimal y k es la k-esima permutacion mayor al 
+ * numero que representa r
+ * 
+ * authors
+ * @nbellol - n.bello - 201630593
+ * @ngaitan98 - n.gaitan -201631098
+ */
 public class ProblemaB {
+	
+	//---------------------------------------------------------------------------------------------
+	// atributos
+	//---------------------------------------------------------------------------------------------
+	/*
+	 * Arreglo donde se guardaran los characteres del numero R
+	 */
 	public static char[] num;
+	/*
+	 * representacion numerica de el numero r
+	 */
 	private static Long R;
-
+	
+	//---------------------------------------------------------------------------------------------
+	// Metodo MAIN
+	//---------------------------------------------------------------------------------------------
+	/*
+	 * En este metodo se resuelve el problema B
+	 */
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
@@ -43,7 +68,15 @@ public class ProblemaB {
 			System.out.println(resp);
 		}
 	}
+	//---------------------------------------------------------------------------------------------
+	// Metodos Adicionales
+	//---------------------------------------------------------------------------------------------
 
+	/*
+	 *Este metodo recibe un arelgo de enteros y genera la siguiente permutacion del numero  
+	 * @param dato arreglo de caracteres que representan un numero al cual se le quiere sacar la primera
+	 * permutacion
+	 */
 	private static void permut(Integer[] dato) {
 		Integer min = 0;
 		Integer posMin =0;
@@ -69,7 +102,7 @@ public class ProblemaB {
 		}
 		dato[posMin] = minDmax;
 		dato[posminDmax] = min;
-		
+
 		Integer borde =posMin +1;
 
 		temp= new int[dato.length -(borde)];
@@ -88,7 +121,9 @@ public class ProblemaB {
 		}
 
 	}
-
+	 /*
+	  * Este metodo Imprime la pregunta para el usuario
+	  */
 	public static void imprimirPregunta() {
 		System.out.println("---------ISIS 1105 - Diseï¿½o y Analisis de Algoritmos----------");
 		System.out.println("---------------------Proyecto----------------------");
