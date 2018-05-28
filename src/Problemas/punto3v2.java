@@ -17,10 +17,20 @@ public class punto3v2 {
 		String option = sc.nextLine();
 		String data[] = option.split("<");
 		cadena = data[0].toCharArray();
+		Integer mitad =0;
+		if (cadena.length%2!=0) {
+			mitad = (cadena.length/2)+1;
+		}
+		else
+		{
+			mitad = cadena.length/2;
+		}
 
-		int[] results = new int[(cadena.length/2)];
+		int[] results = new int[mitad];
 		largo =0;
-		for (int i = 2; i < cadena.length/2; i++) {
+		
+		
+		for (int i = 2; i < mitad; i++) {
 			largo =i;
 			cadLarga  =0;
 			sacarRio();
@@ -29,7 +39,7 @@ public class punto3v2 {
 		
 		String resp ="";
 		for (int i = 0; i < results.length; i++) {
-			resp = resp + results[i] + "-";
+			System.out.println(results[i] + "-" + i);
 		}
 		System.out.println(resp);
 		System.out.println(cadLarga);
@@ -46,11 +56,11 @@ public class punto3v2 {
 			sep = separator.charAt(0);
 
 			if(cadena[i] ==' '|| cadena[i] == ant) {
-				con=1;
+				con=0;
 				valor = i;
 				cadena[valor] =sep;
 				valor = valor + largo;
-				while (valor<cadena.length-1) {
+				while (valor<cadena.length-1 && valor%i ==0) {
 					if(cadena[valor]==' ' || cadena[valor] == ant) {
 						con++;
 						cadena[valor] =sep;
@@ -65,8 +75,8 @@ public class punto3v2 {
 					}
 					valor = valor + largo;
 				}
-				if (con>cadLarga){
-					cadLarga = con;
+				if (con+1>cadLarga){
+					cadLarga = con+1;
 				}
 			}
 		}
